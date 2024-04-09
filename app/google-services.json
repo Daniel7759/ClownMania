@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "837594977246",
+    "project_id": "clownmania-9bf60",
+    "storage_bucket": "clownmania-9bf60.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:837594977246:android:5bcece88c10795a7c2434f",
+        "android_client_info": {
+          "package_name": "com.example.clownmania"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDCmcYJHsCNsi-xl-53eEGqBMBpiRGHnq0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
