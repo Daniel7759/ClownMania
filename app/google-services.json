@@ -12,7 +12,20 @@
           "package_name": "com.example.clownmania"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "837594977246-bc2k4pgb60vv263tl1ifcmiak1sg3f48.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.clownmania",
+            "certificate_hash": "db54f928aa4654394c4d90c6812b413b5c8ef897"
+          }
+        },
+        {
+          "client_id": "837594977246-v4d9netb5vg1vkpdjgf9pm268aobq1q3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyDCmcYJHsCNsi-xl-53eEGqBMBpiRGHnq0"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "837594977246-v4d9netb5vg1vkpdjgf9pm268aobq1q3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }

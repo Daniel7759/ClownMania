@@ -51,6 +51,8 @@ dependencies {
     implementation(libs.androidx.navigation.ui.ktx)
     implementation(libs.firebase.auth)
     implementation(libs.androidx.activity)
+    implementation ("io.github.shashank02051997:FancyToast:2.0.2")
+    implementation("com.github.leandroborgesferreira:loading-button-android:2.3.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

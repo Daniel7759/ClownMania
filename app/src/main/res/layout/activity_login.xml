@@ -112,15 +112,16 @@
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
+            <com.github.leandroborgesferreira.loadingbutton.customViews.CircularProgressButton
                 android:id="@+id/btn_login"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:backgroundTint="@color/white"
-                android:enabled="false"
-                android:layout_marginTop="16dp"
-                android:text="Ingresar"
-                android:textColor="@color/black"/>
+                android:layout_width="158dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="26dp"
+                android:background="@drawable/google_button"
+                android:onClick="onLoginClicked"
+                android:text="Iniciar sesion"
+                android:textColor="@color/black" />
 
             <TextView
                 android:id="@+id/txt_register"
