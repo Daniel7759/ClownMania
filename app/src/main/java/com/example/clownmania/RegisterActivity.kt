@@ -24,12 +24,7 @@ class RegisterActivity : AppCompatActivity() {
         binding.tiedtxtEmail.addTextChangedListener(emailTextWatcher)
         binding.tiedtxtPassword.addTextChangedListener(passwordTextWatcher)
         binding.tiedtxtCellphone.addTextChangedListener(phoneTextWatcher)
-        /*binding.btnBack.setOnClickListener {
-            // Crear un intent para navegar a la actividad de inicio de sesión
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-            finish()
-        }*/
+
         binding.btnRegister.setOnClickListener {
             val firstname = binding.tiedtxtNombre.text.toString().trim()
             val lastname = binding.tiedtxtApellido.text.toString().trim()
@@ -39,11 +34,29 @@ class RegisterActivity : AppCompatActivity() {
 
             if (isValidFirstName(firstname) && isValidLastName(lastname) && isValidEmail(email) && isValidPassword(password) && isValidPhone(phone)
             ) {
-                registerUser(email, password)
+                registerUserInFirebase(email, password)
             } else {
                 Toast.makeText(this, "Por favor, revise los campos ingresados", Toast.LENGTH_SHORT).show()
             }
         }
+    }
+
+    private fun registerUserInFirebase(email: String, password: String) {
+        val mAuth = FirebaseAuth.getInstance()
+        mAuth.createUserWithEmailAndPassword(email, password)
+            .addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // Registro en Firebase exitoso
+                    FancyToast.makeText(this, "Registro completado", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
+                    // Iniciar LoginActivity
+                    val intent = Intent(this, LoginActivity::class.java)
+                    startActivity(intent)
+                    finish() // Finalizar RegisterActivity
+                } else {
+                    // Si el registro en Firebase falla, mostrar mensaje de error
+                    FancyToast.makeText(this, "Registro fallido en Firebase.", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
+                }
+            }
     }
 
     private fun registerUser(email: String, password: String) {
@@ -53,25 +66,10 @@ class RegisterActivity : AppCompatActivity() {
         /*val userData = UserData(firstname, lastname, email, username, password, phone, level)*/
 
         // Llamar a la función para registrar en el servidor
-//        registerUserInServer(userData)
+        registerUserInFirebase(email, password)
     }
 
-    private fun registerUserInFirebase(email: String, password: String) {
-        val mAuth = FirebaseAuth.getInstance()
-        mAuth.createUserWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
-                if (task.isSuccessful) {
-                    // Registro en Firebase exitoso
-                    FancyToast.makeText(this, "2/2 completado", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
-                    val intent = Intent(this, LoginActivity::class.java)
-                    startActivity(intent)
-                    finish()
-                } else {
-                    // Si el registro en Firebase falla, mostrar mensaje de error
-                    FancyToast.makeText(this, "Registro fallido en Firebase.", FancyToast.LENGTH_SHORT, FancyToast.ERROR, false).show()
-                }
-            }
-    }
+
 
     /*private fun registerUserInServer(userData: UserData) {
         RetrofitInstance.apiService.createUser(userData)
