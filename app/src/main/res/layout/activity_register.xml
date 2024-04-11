@@ -3,177 +3,195 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RegisterActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_start"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.1" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline_end"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.9" />
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cv_login"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:cardElevation="24dp"
-        app:cardCornerRadius="16dp"
-        app:cardBackgroundColor="@color/md_theme_primaryContainer"
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@id/guideline_end"
-        app:layout_constraintStart_toStartOf="@id/guideline_start"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:paddingHorizontal="24dp"
-            android:paddingTop="32dp"
-            android:paddingBottom="24dp">
+            android:layout_height="wrap_content">
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cv_image"
-                android:layout_width="200dp"
-                android:layout_height="200dp"
-                android:layout_gravity="center"
-                app:cardElevation="24dp"
-                android:layout_marginBottom="10dp"
-                app:cardCornerRadius="100dp"
-                app:layout_constraintBottom_toTopOf="@+id/cv_login"
-                app:layout_constraintEnd_toEndOf="@+id/cv_login"
-                app:layout_constraintStart_toStartOf="@+id/cv_login">
-
-                <ImageView
-                    android:id="@+id/image_register"
-                    android:layout_width="200dp"
-                    android:layout_height="200dp"
-                    android:scaleType="centerCrop"
-                    android:layout_marginBottom="24dp"
-                    android:contentDescription="@null"
-                    android:elevation="25dp"
-                    android:src="@drawable/clownmania"
-                    app:layout_constraintBottom_toTopOf="@+id/cv_login"
-                    app:layout_constraintEnd_toEndOf="@+id/cv_login"
-                    app:layout_constraintStart_toStartOf="@+id/cv_login" />
-            </androidx.cardview.widget.CardView>
-
-            <TextView
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_start"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Registro de usuario"
-                android:textStyle="bold"
-                android:textSize="20sp"
-                android:layout_gravity="center"
-                android:textColor="@color/md_theme_onTertiaryContainer"
-                android:layout_marginBottom="20dp"/>
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.1" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_nombre"
-                android:layout_width="match_parent"
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_end"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColorHint="@color/md_theme_primary">
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.9" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiedtxt_nombre"
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cv_login"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="24dp"
+                app:cardBackgroundColor="#FFC107"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@id/guideline_end"
+                app:layout_constraintStart_toStartOf="@id/guideline_start"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@color/md_theme_surface_highContrast"
-                    android:hint="Nombres"
-                    android:inputType="textPersonName"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    android:orientation="vertical"
+                    android:paddingHorizontal="24dp"
+                    android:paddingTop="32dp"
+                    android:paddingBottom="24dp">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_apellido"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColorHint="@color/md_theme_primary">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cv_image"
+                        android:layout_width="200dp"
+                        android:layout_height="200dp"
+                        android:layout_gravity="center"
+                        app:cardElevation="24dp"
+                        android:layout_marginBottom="10dp"
+                        app:cardCornerRadius="100dp"
+                        app:layout_constraintBottom_toTopOf="@+id/cv_login"
+                        app:layout_constraintEnd_toEndOf="@+id/cv_login"
+                        app:layout_constraintStart_toStartOf="@+id/cv_login">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiedtxt_apellido"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/md_theme_surface_highContrast"
-                    android:hint="Apellidos"
-                    android:inputType="textPersonName"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                        <ImageView
+                            android:id="@+id/image_register"
+                            android:layout_width="200dp"
+                            android:layout_height="200dp"
+                            android:scaleType="centerCrop"
+                            android:layout_marginBottom="24dp"
+                            android:contentDescription="@null"
+                            android:elevation="25dp"
+                            android:src="@drawable/clownmania"
+                            app:layout_constraintBottom_toTopOf="@+id/cv_login"
+                            app:layout_constraintEnd_toEndOf="@+id/cv_login"
+                            app:layout_constraintStart_toStartOf="@+id/cv_login" />
+                    </androidx.cardview.widget.CardView>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_cellphone"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColorHint="@color/md_theme_primary">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Registro de usuario"
+                        android:textStyle="bold"
+                        android:textSize="20sp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/black"
+                        android:layout_marginBottom="20dp" />
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiedtxt_cellphone"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/md_theme_surface_highContrast"
-                    android:hint="Celular"
-                    android:inputType="number"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_nombre"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/black">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_email"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:textColorHint="@color/md_theme_primary">
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiedtxt_nombre"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:hint="Nombres"
+                            android:textColor="@color/black"
+                            android:inputType="textPersonName"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiedtxt_email"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/md_theme_surface_highContrast"
-                    android:hint="Email"
-                    android:inputType="textEmailAddress"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_apellido"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/til_password"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                app:passwordToggleEnabled="true"
-                android:textColorHint="@color/md_theme_primary">
+                        android:textColorHint="@color/black">
 
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tiedtxt_password"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/md_theme_surface_highContrast"
-                    android:hint="Password"
-                    android:inputType="textPassword"
-                    android:maxLines="1" />
-            </com.google.android.material.textfield.TextInputLayout>
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiedtxt_apellido"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:hint="Apellidos"
+                            android:textColor="@color/black"
+                            android:inputType="textPersonName"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-            <Button
-                android:id="@+id/btn_register"
-                android:layout_width="match_parent"
-                android:layout_height="56dp"
-                android:backgroundTint="@color/md_theme_onSecondaryContainer"
-                android:enabled="false"
-                android:layout_marginTop="16dp"
-                android:text="Registrar"
-                android:textColor="@color/md_theme_onPrimary"/>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_cellphone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:textColorHint="@color/black">
 
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiedtxt_cellphone"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:hint="Celular"
+                            android:textColor="@color/black"
+                            android:inputType="number"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
 
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_email"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:textColorHint="@color/black">
 
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiedtxt_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:hint="Email"
+                            android:textColor="@color/black"
+                            android:inputType="textEmailAddress"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/til_password"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        app:passwordToggleEnabled="true"
+                        android:textColorHint="@color/black">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:id="@+id/tiedtxt_password"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:hint="Password"
+                            android:textColor="@color/black"
+                            android:inputType="textPassword"
+                            android:maxLines="1" />
+                    </com.google.android.material.textfield.TextInputLayout>
+
+                    <Button
+                        android:id="@+id/btn_register"
+                        android:layout_width="match_parent"
+                        android:layout_height="56dp"
+                        android:backgroundTint="#FF516B"
+                        android:enabled="false"
+                        android:layout_marginTop="16dp"
+                        android:text="Registrar"
+                        android:textColor="@color/md_theme_onPrimary" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
