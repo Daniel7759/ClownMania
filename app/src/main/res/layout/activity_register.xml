@@ -186,11 +186,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="56dp"
                         android:backgroundTint="#FF516B"
-                        android:enabled="false"
                         android:layout_marginTop="16dp"
                         android:text="Registrar"
                         android:textColor="@color/md_theme_onPrimary" />
                 </LinearLayout>
+
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>

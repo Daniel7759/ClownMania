@@ -15,7 +15,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-
         <LinearLayout
             android:layout_margin="5dp"
             android:layout_width="match_parent"
@@ -26,8 +25,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:lines="2"
-                android:layout_margin="30dp"
-                android:text="bienvenido a la app Clownmania"
+                android:layout_margin="15dp"
+                android:text="CATALOGO DE EVENTOS"
                 android:gravity="center"
                 android:textAppearance="?android:attr/textAppearanceLarge"
                 android:textColor="@color/black"

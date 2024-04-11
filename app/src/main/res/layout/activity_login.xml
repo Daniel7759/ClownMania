@@ -91,6 +91,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:hint="Email"
+                    android:textColor="@color/black"
                     android:inputType="textEmailAddress"
                     android:maxLines="1"/>
             </com.google.android.material.textfield.TextInputLayout>
@@ -109,6 +110,7 @@
                     android:layout_height="wrap_content"
                     android:background="@color/white"
                     android:hint="Password"
+                    android:textColor="@color/black"
                     android:inputType="textPassword"
                     android:maxLines="1" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -120,7 +122,6 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="26dp"
                 android:background="@drawable/google_button"
-                android:onClick="onLoginClicked"
                 android:text="Iniciar sesion"
                 android:textColor="@color/black" />
 

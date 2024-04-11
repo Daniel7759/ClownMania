@@ -32,8 +32,7 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.tiedtxtPassword.text.toString().trim()
             val phone = binding.tiedtxtCellphone.text.toString().trim()
 
-            if (isValidFirstName(firstname) && isValidLastName(lastname) && isValidEmail(email) && isValidPassword(password) && isValidPhone(phone)
-            ) {
+            if (isValidEmail(email) && isValidPassword(password)) {
                 registerUserInFirebase(email, password)
             } else {
                 Toast.makeText(this, "Por favor, revise los campos ingresados", Toast.LENGTH_SHORT).show()
@@ -68,8 +67,6 @@ class RegisterActivity : AppCompatActivity() {
         // Llamar a la función para registrar en el servidor
         registerUserInFirebase(email, password)
     }
-
-
 
     /*private fun registerUserInServer(userData: UserData) {
         RetrofitInstance.apiService.createUser(userData)

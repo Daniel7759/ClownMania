@@ -53,6 +53,13 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation ("io.github.shashank02051997:FancyToast:2.0.2")
     implementation("com.github.leandroborgesferreira:loading-button-android:2.3.0")
+
+    //Glide
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    implementation(libs.androidx.legacy.support.v4)
+    implementation(libs.androidx.recyclerview)
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
