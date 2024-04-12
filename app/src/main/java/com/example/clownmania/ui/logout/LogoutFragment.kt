@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -17,6 +18,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 class LogoutFragment: Fragment() {
 
+    private lateinit var auth: FirebaseAuth
     private lateinit var binding: FragmentLogoutBinding
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,5 +30,23 @@ class LogoutFragment: Fragment() {
         binding = FragmentLogoutBinding.inflate(inflater, container, false)
         return binding.root
 
+    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        auth = FirebaseAuth.getInstance()
+
+        val btnSi: Button = view.findViewById(R.id.btn_si)
+        btnSi.setOnClickListener {
+            auth.signOut()
+
+            val intent = Intent(activity, LoginActivity::class.java)
+            startActivity(intent)
+            requireActivity().finish()
+        }
+        val btnNo: Button = view.findViewById(R.id.btn_no)
+        btnNo.setOnClickListener {
+            findNavController().navigate(R.id.navigation_home)
+        }
     }
 }
