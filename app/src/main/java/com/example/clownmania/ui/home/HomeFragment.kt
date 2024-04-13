@@ -7,8 +7,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.clownmania.R
 import com.example.clownmania.data.Show
 import com.example.clownmania.databinding.FragmentHomeBinding
+import com.example.clownmania.ui.home.showDatos.ShowFragment
 
 class HomeFragment : Fragment() {
 
@@ -35,7 +37,13 @@ class HomeFragment : Fragment() {
 
         showAdapter = ShowAdapter(emptyList(), object : ShowClick {
             override fun onShowClicked(show: Show) {
-                //listener.onShowSelected(show.showId)
+                //aca esta dando error al abrir otro fragmento
+                /*val showFragment = ShowFragment()
+                parentFragmentManager.beginTransaction()
+                    .add(R.id.layout_home, showFragment)
+                    .addToBackStack(null)
+                    .commit()*/
+
             }
         })
 

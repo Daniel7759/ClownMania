@@ -29,4 +29,11 @@
         android:label="Logout"
         tools:layout="@layout/fragment_logout" />
 
+    <fragment
+        android:id="@+id/showFragment"
+        android:name="com.example.clownmania.ui.home.showDatos.ShowFragment"
+        android:label="fragment_show"
+        tools:layout="@layout/fragment_show" >
+    </fragment>
+
 </navigation>
