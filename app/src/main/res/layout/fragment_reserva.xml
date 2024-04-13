@@ -2,8 +2,11 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+
+    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:padding="16dp">
 
     <TextView
@@ -11,6 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ficha de show"
+        android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -24,6 +28,7 @@
         android:layout_marginTop="32dp"
         android:text="INFORMACIÓN DE ENVÍO A LA RESERVA"
         android:textStyle="bold"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -47,7 +52,7 @@
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toStartOf="@+id/til_apellido"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView2">
+            app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiedtxt_nombre"
@@ -162,6 +167,7 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <CalendarView
+        android:background="#C2F8F6"
         android:id="@+id/calendarView"
         android:layout_width="369dp"
         android:layout_height="308dp"

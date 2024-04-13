@@ -51,7 +51,7 @@ class ShowAdapter(private var showList: List<Show>, private val showClick: ShowC
     val showFragment = ShowFragment()
     val fragmentManager = (binding.root.context as AppCompatActivity).supportFragmentManager
     fragmentManager.beginTransaction()
-        .replace(R.id.layout_home, showFragment)
+        .add(R.id.layout_home, showFragment)
         .addToBackStack(null)
         .commit()
 }
