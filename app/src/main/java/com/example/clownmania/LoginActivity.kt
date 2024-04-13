@@ -20,6 +20,7 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        supportActionBar?.hide() // Agrega esta línea para ocultar el Toolbar
         // Verificar si el usuario ya está autenticado
         val currentUser = auth.currentUser
         if (currentUser != null) {
