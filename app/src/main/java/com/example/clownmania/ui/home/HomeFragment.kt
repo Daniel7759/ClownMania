@@ -35,6 +35,11 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+
+
+
+
         showAdapter = ShowAdapter(emptyList(), object : ShowClick {
             override fun onShowClicked(show: Show) {
                 //aca esta dando error al abrir otro fragmento
@@ -46,6 +51,8 @@ class HomeFragment : Fragment() {
 
             }
         })
+
+
 
         binding.recyclerShown.apply {
             layoutManager = GridLayoutManager(requireContext(), 2)

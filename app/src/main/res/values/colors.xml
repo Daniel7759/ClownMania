@@ -7,4 +7,25 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="toolregister">#66B7CF</color>
+    <color name="button_color">#336699</color>
+    <color name="lateralazul">#13A8C2</color>
+    <color name="red">#FFEB2706</color>
+    <color name="naranja"> #F34334</color>
+    <color name="main">#467FE6</color>
+
+    <color name="transparentinvisible">#00000000</color>
+
+    <color name="grey">#FF808080</color>
+    <color name="toolbar">#FF367E7F</color>
+
+    <color name="wa">#1F1F1F	</color>
+    <color name="grisss">#33000000</color>
+    <color name="seed">#6750A4</color>
+    <color name="amarilloopaco">#EBFDF5</color>
+
+    <color name="azulBajo">#2A3742</color>
+    <color name="toolbarPrincipal">#003366</color>
+    <color name="colorPrincipal">#0080C0</color>
 </resources>

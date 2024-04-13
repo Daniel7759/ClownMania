@@ -4,11 +4,13 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.clownmania.R
 import com.example.clownmania.data.Show
 import com.example.clownmania.databinding.ItemsShownBinding
+import com.example.clownmania.ui.home.showDatos.ShowFragment
 
 class ShowAdapter(private var showList: List<Show>, private val showClick: ShowClick) :
     RecyclerView.Adapter<ShowAdapter.VHShow>() {
@@ -44,10 +46,15 @@ class ShowAdapter(private var showList: List<Show>, private val showClick: ShowC
             }
 
             // Configura un OnClickListener para el botón de detalles
-            binding.btnDetalle.setOnClickListener {
-                showClick.onShowClicked(show)
-                Toast.makeText(binding.root.context, "Detalles de ${show.name}", Toast.LENGTH_SHORT).show()
-            }
+        binding.btnDetalle.setOnClickListener {
+    // Reemplaza el HomeFragment con el ShowFragment
+    val showFragment = ShowFragment()
+    val fragmentManager = (binding.root.context as AppCompatActivity).supportFragmentManager
+    fragmentManager.beginTransaction()
+        .replace(R.id.layout_home, showFragment)
+        .addToBackStack(null)
+        .commit()
+}
         }
     }
 }

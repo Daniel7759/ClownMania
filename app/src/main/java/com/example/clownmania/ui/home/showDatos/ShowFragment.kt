@@ -8,24 +8,8 @@ import android.view.ViewGroup
 import com.example.clownmania.R
 import com.example.clownmania.data.Show
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
-/**
- * A simple [Fragment] subclass.
- * Use the [ShowFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class ShowFragment : Fragment() {
-
-    private lateinit var show: Show
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        show = arguments?.getSerializable("show") as Show
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,16 +18,6 @@ class ShowFragment : Fragment() {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_show, container, false)
     }
-
-    /*companion object {
-        fun newInstance(show: Show): ShowFragment {
-            val fragment = ShowFragment()
-            val args = Bundle()
-            args.putSerializable("show", show)
-            fragment.arguments = args
-            return fragment
-        }
-    }*/
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
