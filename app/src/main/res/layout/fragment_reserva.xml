@@ -44,22 +44,21 @@
 
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_nombre"
+            android:id="@+id/til_ubicacion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:layout_weight="1"
+            android:layout_weight="2"
             android:textColorHint="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/til_apellido"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tiedtxt_nombre"
+                android:id="@+id/tiedtxt_ubicacion"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/grisss"
-                android:hint="Nombre"
+                android:hint="Direccion"
                 android:inputType="text"
                 android:maxLines="1"
                 android:textColor="@android:color/black"
@@ -68,47 +67,23 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_apellido"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:layout_weight="1"
-            android:textColorHint="@color/black"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/til_nombre"
-            app:layout_constraintTop_toTopOf="@+id/til_nombre">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tiedtxt_apellido"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/grisss"
-                android:hint="Apellido"
-                android:inputType="text"
-                android:maxLines="1"
-                android:textColor="@android:color/black"
-                android:textColorHint="@color/black"
-                android:textSize="12sp" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_direccion"
+            android:id="@+id/til_observacion"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/til_nombre">
+            app:layout_constraintTop_toBottomOf="@+id/til_ubicacion">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tiedtxt_direccion"
+                android:id="@+id/tiedtxt_obsevacion"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/grisss"
-                android:hint="Dirección del domicilio"
+                android:hint="Observaciones"
                 android:inputType="text"
-                android:maxLines="1"
+                android:maxLines="3"
                 android:textColor="@android:color/black"
                 android:textColorHint="@color/black"
                 android:textSize="12sp" />
@@ -122,9 +97,9 @@
             android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:textColorHint="@color/black"
-            app:layout_constraintEnd_toStartOf="@+id/til_provincia"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/til_direccion">
+            app:layout_constraintTop_toBottomOf="@+id/til_observacion">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiedtxt_ciudad"
@@ -139,8 +114,8 @@
                 android:textSize="12sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/til_provincia"
+        <!--<com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_hora"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -151,33 +126,84 @@
             app:layout_constraintTop_toTopOf="@+id/til_ciudad">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tiedtxt_provincia"
+                android:id="@+id/tiedtxt_hora"
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:background="@color/grisss"
-                android:hint="Provincia"
-                android:inputType="text"
+                android:hint="Hora"
+                android:inputType="time"
                 android:maxLines="1"
                 android:textColor="@android:color/black"
                 android:textColorHint="@color/black"
                 android:textSize="12sp" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_fecha"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_weight="1"
+            android:textColorHint="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_ciudad">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiedtxt_fecha"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/grisss"
+                android:hint="Fecha"
+                android:inputType="date"
+                android:maxLines="1"
+                android:textColor="@android:color/black"
+                android:textColorHint="@color/black"
+                android:textSize="12sp" />
+
+        </com.google.android.material.textfield.TextInputLayout>-->
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <CalendarView
-        android:background="#C2F8F6"
-        android:id="@+id/calendarView"
-        android:layout_width="369dp"
-        android:layout_height="308dp"
-        android:layout_marginTop="28dp"
+    <EditText
+        android:id="@+id/edtxt_fecha"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/grisss"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="Fecha"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edtxt_hora" />
+
+    <EditText
+        android:id="@+id/edtxt_hora"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/grisss"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="Hora"
+        android:maxLines="1"
+        android:textColor="@android:color/black"
+        android:textColorHint="@color/black"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_reservar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Reservar"
