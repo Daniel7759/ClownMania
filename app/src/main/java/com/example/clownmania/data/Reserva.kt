@@ -6,8 +6,8 @@ import java.time.LocalTime
 
 data class Reserva(
     val ciudad: String,
-    val fecha: LocalDate,
-    val hora: LocalTime,
+    val fecha: String,
+    val hora: String,
     val ubicacion: String,
     val observacion: String,
     val evento: Evento,
@@ -20,5 +20,5 @@ data class Evento(
 )
 
 data class Usuario(
-    val usuarioId: Int
+    val userId: Int
 )

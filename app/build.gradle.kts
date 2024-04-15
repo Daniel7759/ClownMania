@@ -54,6 +54,10 @@ dependencies {
     implementation ("io.github.shashank02051997:FancyToast:2.0.2")
     implementation("com.github.leandroborgesferreira:loading-button-android:2.3.0")
 
+    //Room
+    /*implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)*/
+
     //Glide
     implementation("com.github.bumptech.glide:glide:4.16.0")
     implementation(libs.androidx.legacy.support.v4)

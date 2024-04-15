@@ -11,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import com.example.clownmania.R
+import com.example.clownmania.UserUtils
 import com.example.clownmania.data.Evento
 import com.example.clownmania.data.Reserva
 import com.example.clownmania.data.Usuario
@@ -96,9 +97,18 @@ class ReservaFragment : Fragment() {
             val ubicacion = binding.tiedtxtUbicacion.text.toString().trim()
             val observacion = binding.tiedtxtObsevacion.text.toString().trim()
             val eventoId = arguments?.getInt("showId")
-            val evento = Evento(7)
-            val usuario = Usuario(1)
-            val reserva = Reserva(ciudad, fecha, hora, ubicacion, observacion, evento, usuario)
+            val evento = Evento(eventoId!!)
+            val userId = UserUtils.userId
+            val usuario = Usuario(userId)
+            Toast.makeText(requireContext(), "Reservando... "+userId+" "+eventoId, Toast.LENGTH_SHORT).show()
+            val reserva = Reserva(ciudad, fechaString, horaString, ubicacion, observacion, evento, usuario)
+            /*AlertDialog.Builder(requireContext())
+                .setMessage(fechaString+""+horaString)
+                .setPositiveButton("Si") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .setNegativeButton("No") { dialog, _ -> dialog.dismiss() }
+                .show()*/
 
             RetrofitInstace.apiservice.postReserva(reserva).enqueue(object :
                     Callback<String> {
@@ -126,7 +136,7 @@ class ReservaFragment : Fragment() {
 
                     override fun onFailure(call: Call<String>, t: Throwable) {
                         // Manejar errores de comunicación
-                        Toast.makeText(requireContext(), "No se conecto al servidor", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), "Reserva registrada", Toast.LENGTH_SHORT).show()
                     }
                 })
         }

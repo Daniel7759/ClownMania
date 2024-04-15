@@ -13,7 +13,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ficha de show"
+        android:text="FICHA DE RESERVA"
         android:textColor="@color/black"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="INFORMACIÓN DE ENVÍO A LA RESERVA"
+        android:text="INFORMACIÓN DE RESERVA"
         android:textStyle="bold"
         android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
@@ -45,8 +45,8 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_ubicacion"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:layout_weight="2"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
@@ -56,7 +56,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiedtxt_ubicacion"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:background="@color/grisss"
                 android:hint="Direccion"
                 android:inputType="text"
@@ -69,7 +69,7 @@
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_observacion"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="60dp"
             android:layout_marginTop="8dp"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
@@ -79,7 +79,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiedtxt_obsevacion"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:background="@color/grisss"
                 android:hint="Observaciones"
                 android:inputType="text"
@@ -91,10 +91,9 @@
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/til_ciudad"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
             android:layout_weight="1"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +103,7 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/tiedtxt_ciudad"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="match_parent"
                 android:background="@color/grisss"
                 android:hint="Ciudad"
                 android:inputType="text"
@@ -165,42 +164,42 @@
 
         </com.google.android.material.textfield.TextInputLayout>-->
 
+        <EditText
+            android:id="@+id/edtxt_fecha"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/grisss"
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="Fecha"
+            android:maxLines="1"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/til_ciudad" />
+
+        <EditText
+            android:id="@+id/edtxt_hora"
+            android:layout_width="175dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="8dp"
+            android:background="@color/grisss"
+            android:clickable="true"
+            android:focusable="false"
+            android:hint="Hora"
+            android:maxLines="1"
+            android:textColor="@android:color/black"
+            android:textColorHint="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/edtxt_fecha"
+            app:layout_constraintTop_toBottomOf="@+id/til_ciudad" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/edtxt_fecha"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/grisss"
-        android:clickable="true"
-        android:focusable="false"
-        android:hint="Fecha"
-        android:maxLines="1"
-        android:textColor="@android:color/black"
-        android:textColorHint="@color/black"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edtxt_hora" />
-
-    <EditText
-        android:id="@+id/edtxt_hora"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:background="@color/grisss"
-        android:clickable="true"
-        android:focusable="false"
-        android:hint="Hora"
-        android:maxLines="1"
-        android:textColor="@android:color/black"
-        android:textColorHint="@color/black"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
 
     <Button
         android:id="@+id/btn_reservar"

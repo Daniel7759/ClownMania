@@ -5,11 +5,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.util.Patterns
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import com.example.clownmania.data.UserAuthenticate
+import com.example.clownmania.data.retrofit.RetrofitInstace
 import com.example.clownmania.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.shashank.sony.fancytoastlib.FancyToast
+import kotlinx.coroutines.launch
 
 class LoginActivity : AppCompatActivity() {
 
@@ -38,6 +44,7 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.tiedtxtPassword.text.toString()
             binding.btnLogin.startAnimation() // Iniciar la animación antes de realizar el inicio de sesión
             loginWithEmailAndPassword(email, password)
+
         }
         binding.txtRegister.setOnClickListener {
             val intent = Intent(this, RegisterActivity::class.java)
@@ -144,4 +151,5 @@ class LoginActivity : AppCompatActivity() {
             else -> null
         }
     }
+
 }

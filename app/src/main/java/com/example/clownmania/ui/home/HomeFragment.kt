@@ -1,6 +1,9 @@
 package com.example.clownmania.ui.home
 
+import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +13,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.clownmania.R
+import com.example.clownmania.UserUtils
 import com.example.clownmania.data.Show
+import com.example.clownmania.data.UserAuthenticate
 import com.example.clownmania.data.retrofit.RetrofitInstace
 import com.example.clownmania.databinding.FragmentHomeBinding
 import com.example.clownmania.ui.home.showDatos.ShowFragment
@@ -84,10 +89,47 @@ class HomeFragment : Fragment() {
         }
 
 //        showAdapter.setShows(shows)
+        //obtener los sharedPreferences en mi fragmento
+        val sharedPreferences = requireActivity().getSharedPreferences("Credenciales", Context.MODE_PRIVATE)
+        val correo = sharedPreferences.getString("email", "")
+        if (correo != null && correo.isNotEmpty()) {
+            autenticarUser(correo)
+        }
+
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun autenticarUser(correo: String){
+        lifecycleScope.launch {
+            try {
+                val response = RetrofitInstace.apiservice.getUsuarioCorreo(correo)
+                if(response.isSuccessful){
+                    val user = response.body()
+                    user?.let { saveUserUtils(it) }
+                }else{
+                    Toast.makeText(requireContext(), "Error al cargar el usuario", Toast.LENGTH_SHORT).show()
+                }
+            }catch (e: Exception){
+                AlertDialog.Builder(requireContext())
+                    .setMessage("Error al cargar el usuario: ${e.message}")
+                    .setCancelable(true)
+                    .setPositiveButton("OK"){ dialog, _ -> dialog.dismiss() }
+                    .create()
+                    .show()
+            }
+        }
+    }
+    private fun saveUserUtils(user: UserAuthenticate){
+        UserUtils.setUserId(user.userId)
+        UserUtils.setNombre(user.nombre)
+        UserUtils.setApellido(user.apellido)
+        UserUtils.setCorreo(user.correo)
+        UserUtils.setCelular(user.celular)
+        val role = user.role.stream().findFirst().get().nombreRol
+        UserUtils.setRole(role)
     }
 }
