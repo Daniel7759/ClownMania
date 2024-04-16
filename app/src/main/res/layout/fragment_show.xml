@@ -26,7 +26,12 @@
             android:text="FICHA DE SHOW"
             android:textStyle="bold"
             android:textSize="24dp"/>
-
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/black" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="230dp"

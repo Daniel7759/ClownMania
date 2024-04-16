@@ -3,9 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
 
-    android:background="@color/white"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
 
     android:padding="16dp">
 
@@ -21,26 +21,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="24dp"
         android:text="INFORMACIÓN DE RESERVA"
-        android:textStyle="bold"
         android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/divider" />
+
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        tools:layout_editor_absoluteX="17dp"
+        tools:layout_editor_absoluteY="172dp">
 
 
         <com.google.android.material.textfield.TextInputLayout
@@ -70,7 +80,7 @@
             android:id="@+id/til_observacion"
             android:layout_width="0dp"
             android:layout_height="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -93,7 +103,7 @@
             android:id="@+id/til_ciudad"
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:layout_weight="1"
             android:textColorHint="@color/black"
             app:layout_constraintEnd_toEndOf="parent"
@@ -107,6 +117,7 @@
                 android:background="@color/grisss"
                 android:hint="Ciudad"
                 android:inputType="text"
+
                 android:maxLines="1"
                 android:textColor="@android:color/black"
                 android:textColorHint="@color/black"
@@ -168,7 +179,7 @@
             android:id="@+id/edtxt_fecha"
             android:layout_width="175dp"
             android:layout_height="60dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:background="@color/grisss"
             android:clickable="true"
             android:focusable="false"
@@ -185,7 +196,7 @@
             android:layout_width="175dp"
             android:layout_height="60dp"
             android:layout_marginLeft="30dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             android:background="@color/grisss"
             android:clickable="true"
             android:focusable="false"
@@ -195,11 +206,11 @@
             android:textColorHint="@color/black"
             android:textSize="12sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.448"
             app:layout_constraintStart_toEndOf="@+id/edtxt_fecha"
             app:layout_constraintTop_toBottomOf="@+id/til_ciudad" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
     <Button
         android:id="@+id/btn_reservar"
