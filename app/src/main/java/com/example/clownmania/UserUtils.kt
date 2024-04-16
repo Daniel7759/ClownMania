@@ -3,7 +3,7 @@ package com.example.clownmania
 object UserUtils {
 
     //guardar los datos del usuario que inicia sesion
-    var userId: Int = 0
+    var userId: Int = -1
         private set
     var nombre: String = ""
         private set
@@ -13,7 +13,7 @@ object UserUtils {
         private set
     var celular: String = ""
         private set
-    var role: String = "user"
+    var role: String = "USER"
         private set
 
 

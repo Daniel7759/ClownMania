@@ -1,5 +1,6 @@
 package com.example.clownmania
 
+import android.app.AlertDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,6 +10,7 @@ import android.util.Log
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.lifecycleScope
 import com.example.clownmania.data.UserAuthenticate
 import com.example.clownmania.data.retrofit.RetrofitInstace
@@ -44,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
             val password = binding.tiedtxtPassword.text.toString()
             binding.btnLogin.startAnimation() // Iniciar la animación antes de realizar el inicio de sesión
             loginWithEmailAndPassword(email, password)
+
 
         }
         binding.txtRegister.setOnClickListener {

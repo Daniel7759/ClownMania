@@ -47,10 +47,6 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
 
-
-
-
-
         showAdapter = ShowAdapter(emptyList(), object : ShowClick {
             override fun onShowClicked(show: Show) {
                 //aca esta dando error al abrir otro fragmento
@@ -90,11 +86,11 @@ class HomeFragment : Fragment() {
 
 //        showAdapter.setShows(shows)
         //obtener los sharedPreferences en mi fragmento
-        val sharedPreferences = requireActivity().getSharedPreferences("Credenciales", Context.MODE_PRIVATE)
+        /*val sharedPreferences = requireActivity().getSharedPreferences("Credenciales", Context.MODE_PRIVATE)
         val correo = sharedPreferences.getString("email", "")
         if (correo != null && correo.isNotEmpty()) {
             autenticarUser(correo)
-        }
+        }*/
 
     }
 
@@ -103,7 +99,7 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    private fun autenticarUser(correo: String){
+    /*private fun autenticarUser(correo: String){
         lifecycleScope.launch {
             try {
                 val response = RetrofitInstace.apiservice.getUsuarioCorreo(correo)
@@ -131,5 +127,5 @@ class HomeFragment : Fragment() {
         UserUtils.setCelular(user.celular)
         val role = user.role.stream().findFirst().get().nombreRol
         UserUtils.setRole(role)
-    }
+    }*/
 }

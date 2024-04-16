@@ -69,6 +69,9 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation ("com.squareup.okhttp3:okhttp:4.12.0")
 
+    implementation("com.stripe:stripe-android:17.1.2")
+    implementation("com.google.code.gson:gson:2.8.6")
+
     implementation ("de.hdodenhof:circleimageview:3.1.0")
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)

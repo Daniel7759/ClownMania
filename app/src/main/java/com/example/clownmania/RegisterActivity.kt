@@ -7,9 +7,15 @@ import android.text.TextWatcher
 import android.util.Patterns
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.clownmania.data.CreateUsuario
+import com.example.clownmania.data.UserResponse
+import com.example.clownmania.data.retrofit.RetrofitInstace
 import com.example.clownmania.databinding.ActivityRegisterBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.shashank.sony.fancytoastlib.FancyToast
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -35,7 +41,7 @@ class RegisterActivity : AppCompatActivity() {
             val phone = binding.tiedtxtCellphone.text.toString().trim()
 
             if (isValidEmail(email) && isValidPassword(password)) {
-                registerUserInFirebase(email, password)
+                registerUser(email, password)
             } else {
                 Toast.makeText(this, "Por favor, revise los campos ingresados", Toast.LENGTH_SHORT).show()
             }
@@ -64,14 +70,14 @@ class RegisterActivity : AppCompatActivity() {
         val firstname = binding.tiedtxtNombre.text.toString().trim()
         val lastname = binding.tiedtxtApellido.text.toString().trim()
         val phone = binding.tiedtxtCellphone.text.toString().trim()
-        /*val userData = UserData(firstname, lastname, email, username, password, phone, level)*/
+        val userData = CreateUsuario(firstname, lastname, email, password, phone)
 
         // Llamar a la función para registrar en el servidor
-        registerUserInFirebase(email, password)
+        registerUserInServer(userData)
     }
 
-    /*private fun registerUserInServer(userData: UserData) {
-        RetrofitInstance.apiService.createUser(userData)
+    private fun registerUserInServer(userData: CreateUsuario) {
+        RetrofitInstace.apiservice.postUsuario(userData)
             .enqueue(object : Callback<UserResponse> {
                 override fun onResponse(
                     call: Call<UserResponse>,
@@ -81,7 +87,7 @@ class RegisterActivity : AppCompatActivity() {
                         // Registro exitoso en el servidor
                         FancyToast.makeText(this@RegisterActivity, "1/2 registrando", FancyToast.LENGTH_SHORT, FancyToast.SUCCESS, false).show()
                         // Después del registro en el servidor, proceder al registro en Firebase
-                        val email = userData.email
+                        val email = userData.correo
                         val password = userData.password
                         registerUserInFirebase(email, password)
                     } else {
@@ -107,7 +113,7 @@ class RegisterActivity : AppCompatActivity() {
                     ).show()
                 }
             })
-    }*/
+    }
 
 
     private val firstNameTextWatcher = object : TextWatcher {
