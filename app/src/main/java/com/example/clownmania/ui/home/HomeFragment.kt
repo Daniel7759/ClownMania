@@ -2,16 +2,22 @@ package com.example.clownmania.ui.home
 
 import android.app.AlertDialog
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
+import com.example.clownmania.LoginActivity
 import com.example.clownmania.R
 import com.example.clownmania.UserUtils
 import com.example.clownmania.data.Show
@@ -19,6 +25,7 @@ import com.example.clownmania.data.UserAuthenticate
 import com.example.clownmania.data.retrofit.RetrofitInstace
 import com.example.clownmania.databinding.FragmentHomeBinding
 import com.example.clownmania.ui.home.showDatos.ShowFragment
+import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -46,6 +53,12 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        // Inicializa el Toolbar
+        val toolbar = binding.toolbar
+        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+
+        // Habilita el menú de opciones en el Fragment
+        setHasOptionsMenu(true)
 
         showAdapter = ShowAdapter(emptyList(), object : ShowClick {
             override fun onShowClicked(show: Show) {
@@ -99,33 +112,27 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    /*private fun autenticarUser(correo: String){
-        lifecycleScope.launch {
-            try {
-                val response = RetrofitInstace.apiservice.getUsuarioCorreo(correo)
-                if(response.isSuccessful){
-                    val user = response.body()
-                    user?.let { saveUserUtils(it) }
-                }else{
-                    Toast.makeText(requireContext(), "Error al cargar el usuario", Toast.LENGTH_SHORT).show()
-                }
-            }catch (e: Exception){
-                AlertDialog.Builder(requireContext())
-                    .setMessage("Error al cargar el usuario: ${e.message}")
-                    .setCancelable(true)
-                    .setPositiveButton("OK"){ dialog, _ -> dialog.dismiss() }
-                    .create()
-                    .show()
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.close_session, menu)
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Maneja los clicks en los items del menú de opciones
+        when (item.itemId) {
+            R.id.action_settings -> {
+                // Aquí puedes manejar el cierre de sesión
+                FirebaseAuth.getInstance().signOut()
+
+                // Redirige al usuario a la pantalla de inicio de sesión
+                val intent = Intent(activity, LoginActivity::class.java)
+                startActivity(intent)
+                activity?.finish() // Finaliza la actividad actual
+
+                return true
             }
         }
+        return super.onOptionsItemSelected(item)
     }
-    private fun saveUserUtils(user: UserAuthenticate){
-        UserUtils.setUserId(user.userId)
-        UserUtils.setNombre(user.nombre)
-        UserUtils.setApellido(user.apellido)
-        UserUtils.setCorreo(user.correo)
-        UserUtils.setCelular(user.celular)
-        val role = user.role.stream().findFirst().get().nombreRol
-        UserUtils.setRole(role)
-    }*/
+
 }
