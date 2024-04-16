@@ -18,6 +18,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.clownmania.LoginActivity
+import com.example.clownmania.MainActivity
 import com.example.clownmania.R
 import com.example.clownmania.UserUtils
 import com.example.clownmania.data.Show
@@ -53,9 +54,9 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        // Inicializa el Toolbar
-        val toolbar = binding.toolbar
-        (activity as AppCompatActivity).setSupportActionBar(toolbar)
+        /*// Inicializa el Toolbar
+        val toolbar = binding.toolbar*/
+        (activity as MainActivity).updateToolbarTitle("Clownmania")
 
         // Habilita el menú de opciones en el Fragment
         setHasOptionsMenu(true)
@@ -112,7 +113,7 @@ class HomeFragment : Fragment() {
         _binding = null
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    /*override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.close_session, menu)
         super.onCreateOptionsMenu(menu, inflater)
     }
@@ -133,6 +134,6 @@ class HomeFragment : Fragment() {
             }
         }
         return super.onOptionsItemSelected(item)
-    }
+    }*/
 
 }

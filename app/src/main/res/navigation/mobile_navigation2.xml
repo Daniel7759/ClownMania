@@ -31,14 +31,14 @@
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_pagosAdmin"
+        android:id="@+id/navigation_pagos_admin"
         android:name="com.example.clownmania.ui.pagos.PagosAdminFragment"
         android:label="PagosAdmin"
         tools:layout="@layout/layout_pagos_admin" >
     </fragment>
 
     <fragment
-        android:id="@+id/navigation_usersregistrado"
+        android:id="@+id/navigation_usuarios_registrados"
         android:name="com.example.clownmania.ui.usersregistrado.UsuariosRegistradosFragment"
         android:label="UsuariosRegistrados"
         tools:layout="@layout/layout_usuarios_registrados" >

@@ -29,6 +29,9 @@ interface ClownmaniaApiService {
     @GET("usuarios/correo")
     suspend fun getUsuarioCorreo(@Query("correo") correo: String): Response<UserAuthenticate>
 
+    @GET("usuarios")
+    suspend fun getUsuarios(): List<UserAuthenticate>
+
     @POST("usuarios")
     fun postUsuario(@Body usuario: CreateUsuario): Call<UserResponse>
 

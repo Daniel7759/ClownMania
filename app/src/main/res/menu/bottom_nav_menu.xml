@@ -17,12 +17,12 @@
         android:title="Noticaciones" />
 
     <item
-        android:id="@+id/navigation_userregistrado"
+        android:id="@+id/navigation_usuarios_registrados"
         android:icon="@drawable/ic_dashboard_black_24dp"
         android:title="Usuarios Registrados" />
 
     <item
-        android:id="@+id/navigation_pagossadmin"
+        android:id="@+id/navigation_pagos_admin"
         android:icon="@drawable/ic_notifications_black_24dp"
         android:title="Pagos" />
 

@@ -1,12 +1,17 @@
 package com.example.clownmania
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -17,6 +22,7 @@ import com.example.clownmania.data.UserAuthenticate
 import com.example.clownmania.data.retrofit.RetrofitInstace
 import com.example.clownmania.databinding.ActivityMainBinding
 import com.example.clownmania.ui.home.HomeFragment
+import com.google.firebase.auth.FirebaseAuth
 import com.shashank.sony.fancytoastlib.FancyToast
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -33,13 +39,16 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val toolbar: Toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val appBarConfiguration = AppBarConfiguration(
             setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_pagossadmin,
-                R.id.navigation_userregistrado
+                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_pagos_admin,
+                R.id.navigation_usuarios_registrados
             )
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
@@ -56,19 +65,19 @@ class MainActivity : AppCompatActivity() {
         val role = sharedPreferences.getString("role","USER") // replace this with actual role fetching logic
 
         val menuNav = navView.menu
-       if (role == "ADMIN") {
+        if (role == "ADMIN") {
             menuNav.findItem(R.id.navigation_dashboard).isVisible = false
             menuNav.findItem(R.id.navigation_notifications).isVisible = true
             menuNav.findItem(R.id.navigation_home).isVisible = true
-            menuNav.findItem(R.id.navigation_userregistrado).isVisible = true
-            menuNav.findItem(R.id.navigation_pagossadmin).isVisible = true
+            menuNav.findItem(R.id.navigation_usuarios_registrados).isVisible = true
+            menuNav.findItem(R.id.navigation_pagos_admin).isVisible = true
         }
         if (role == "USER") {
             menuNav.findItem(R.id.navigation_dashboard).isVisible = true
             menuNav.findItem(R.id.navigation_notifications).isVisible = true
             menuNav.findItem(R.id.navigation_home).isVisible = true
-            menuNav.findItem(R.id.navigation_userregistrado).isVisible = false
-            menuNav.findItem(R.id.navigation_pagossadmin).isVisible = false
+            menuNav.findItem(R.id.navigation_usuarios_registrados).isVisible = false
+            menuNav.findItem(R.id.navigation_pagos_admin).isVisible = false
         }
     }
 
@@ -106,5 +115,32 @@ class MainActivity : AppCompatActivity() {
         val editor = sharedPreferences.edit()
         editor.putString("role", role)
         editor.apply()
+    }
+
+    fun updateToolbarTitle(title: String) {
+        supportActionBar?.title = title
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        menuInflater.inflate(R.menu.close_session, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        // Maneja los clicks en los items del menú de opciones
+        when (item.itemId) {
+            R.id.action_settings -> {
+                // Aquí puedes manejar el cierre de sesión
+                FirebaseAuth.getInstance().signOut()
+
+                // Redirige al usuario a la pantalla de inicio de sesión
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                this?.finish() // Finaliza la actividad actual
+
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

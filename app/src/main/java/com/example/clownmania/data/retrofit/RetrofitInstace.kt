@@ -6,7 +6,7 @@ import retrofit2.create
 
 object RetrofitInstace {
 
-    private const val URL_BASE = "http://192.168.1.35:8092/"
+    private const val URL_BASE = "http://node179706-studyfinal.jelastic.saveincloud.net:15103/"
 
     val apiservice: ClownmaniaApiService by lazy {
         val retrofit = Retrofit.Builder()

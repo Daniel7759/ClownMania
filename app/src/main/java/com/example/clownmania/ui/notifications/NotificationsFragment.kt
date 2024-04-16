@@ -1,5 +1,6 @@
 package com.example.clownmania.ui.notifications
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.clownmania.MainActivity
 import com.example.clownmania.UserUtils
 import com.example.clownmania.data.retrofit.ReservasGet
 import com.example.clownmania.data.retrofit.RetrofitInstace
@@ -47,7 +49,13 @@ class NotificationsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        reservaAdapter = ReservaAdapter(emptyList())
+        if (UserUtils.role=="ADMIN"){
+            (activity as MainActivity).updateToolbarTitle("Reservas de Usuarios")
+        }else{
+            (activity as MainActivity).updateToolbarTitle("Mis Reservas")
+        }
+
+        reservaAdapter = ReservaAdapter(requireContext(),emptyList())
 
         binding.recyclerReservas.apply {
             layoutManager = LinearLayoutManager(context)
