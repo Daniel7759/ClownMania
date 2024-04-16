@@ -3,10 +3,12 @@ package com.example.clownmania
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.AttributeSet
 import android.util.Log
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.google.android.material.bottomnavigation.BottomNavigationView
@@ -32,6 +34,7 @@ import kotlin.math.absoluteValue
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var navView: BottomNavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         val toolbar: Toolbar = findViewById(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val navView: BottomNavigationView = binding.navView
+        navView= binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
         val appBarConfiguration = AppBarConfiguration(
@@ -63,9 +66,10 @@ class MainActivity : AppCompatActivity() {
 
 
         val role = sharedPreferences.getString("role","USER") // replace this with actual role fetching logic
+        val email = sharedPreferences.getString("email", "")
 
         val menuNav = navView.menu
-        if (role == "ADMIN") {
+        if (role == "ADMIN" || email=="danieljh7759@gmail.com") {
             menuNav.findItem(R.id.navigation_dashboard).isVisible = false
             menuNav.findItem(R.id.navigation_notifications).isVisible = true
             menuNav.findItem(R.id.navigation_home).isVisible = true
@@ -79,6 +83,7 @@ class MainActivity : AppCompatActivity() {
             menuNav.findItem(R.id.navigation_usuarios_registrados).isVisible = false
             menuNav.findItem(R.id.navigation_pagos_admin).isVisible = false
         }
+
     }
 
     private fun autenticarUser(correo: String){
@@ -132,6 +137,11 @@ class MainActivity : AppCompatActivity() {
             R.id.action_settings -> {
                 // Aquí puedes manejar el cierre de sesión
                 FirebaseAuth.getInstance().signOut()
+
+                // eliminar el shared preferences
+                val sharedPreferences = getSharedPreferences("Credenciales", Context.MODE_PRIVATE)
+                val editor = sharedPreferences.edit()
+                editor.clear()
 
                 // Redirige al usuario a la pantalla de inicio de sesión
                 val intent = Intent(this, LoginActivity::class.java)

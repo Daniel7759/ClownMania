@@ -37,9 +37,12 @@ class ReservaAdapter(private val context: Context ,private var reservaList: List
     inner class VHReserva(private val binding: ItemsReservaBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun bind(reserva: ReservasGet) {
-            binding.txtReserva.text = "Reserva ${reserva.ubicacion} en Proceso"
+            val nombreCompleto = reserva.usuario.nombre+" "+reserva.usuario.apellido
+            binding.txtReserva.text = nombreCompleto
             binding.txtFecha.text = reserva.fecha
             binding.txtHora.text = reserva.hora
+            binding.txtShow.text = reserva.evento.nombre
+            binding.txtUbicacion.text = "Ubicación: ${reserva.ubicacion}"
 
 
             val sharedPreference = context.getSharedPreferences("Credenciales", Context.MODE_PRIVATE)

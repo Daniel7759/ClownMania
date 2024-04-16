@@ -1,6 +1,8 @@
 package com.example.clownmania.data.retrofit
 
 import com.example.clownmania.data.Evento
+import com.example.clownmania.data.Show
+import com.example.clownmania.data.UserAuthenticate
 import com.example.clownmania.data.Usuario
 
 data class ReservasGet(
@@ -10,5 +12,8 @@ data class ReservasGet(
     val hora: String,
     val ubicacion: String,
     val observacion: String,
+    val evento: Show,
+    val usuario: UserAuthenticate
 
 )
+

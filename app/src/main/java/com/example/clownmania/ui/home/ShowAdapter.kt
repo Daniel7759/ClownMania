@@ -39,12 +39,12 @@ class ShowAdapter(private var showList: List<Show>, private val showClick: ShowC
             binding.txtNameShow.text = show.nombre
             binding.descripcionshow.text = show.descripcion
             if (show.imagenUrl.isNotEmpty()) {
-                binding.imagenShow.setImageResource(R.drawable.clownmania)
-            } /*else {
                 Glide.with(binding.root.context)
                     .load(show.imagenUrl)
                     .into(binding.imagenShow)
-            }*/
+            } else {
+                binding.imagenShow.setImageResource(R.drawable.clownmania)
+            }
 
             // Configura un OnClickListener para el botón de detalles
             binding.btnDetalle.setOnClickListener {
